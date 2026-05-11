@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ──────────────────────────────────────────────── */
+:root {
+  /* Farben */
+  --color-ink:       #1a1f2e;
+  --color-deep:      #252d40;
+  --color-petrol:    #2e7d8c;
+  --color-mist:      #7db4bd;
+  --color-fog:       #c2dce0;
+  --color-parchment: #f8f5f0;
+  --color-cream:     #f0ebe2;
+  --color-sand:      #d8d2c8;
+  --color-stone:     #9a9590;
+  --color-text:      #1e1e28;
+  --color-subtle:    #6e6a64;
+
+  /* Systemfonts – keine externen Abhängigkeiten */
+  --font-serif: 'Palatino', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --font-body:  Georgia, 'Palatino', 'Book Antiqua', 'Times New Roman', serif;
+  --font-ui:    -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing-Rhythmus */
+  --space-section: clamp(5rem, 10vw, 8rem);
+  --space-block:   clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ─── Basis ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-parchment);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+/* ─── Typografie ─────────────────────────────────────────────────── */
+
+/* Editoriale Headline – groß, literarisch */
+.t-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+/* Abschnitts-Heading */
+.t-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+/* Kleine Abschnittsüberschrift */
+.t-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+/* Editoriales Zitat */
+.t-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+/* Lauftext */
+.t-prose {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.0625rem);
+  line-height: 1.9;
+  color: #38362e;
+}
+
+/* Label / Eyebrow */
+.t-label {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.t-label-petrol {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-petrol);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────────── */
+.nav-link {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.25s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ─── Hero Overlay ───────────────────────────────────────────────── */
+.hero-overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(26, 31, 46, 0.6) 0%,
+    rgba(26, 31, 46, 0.2) 50%,
+    rgba(26, 31, 46, 0.75) 100%
+  );
+}
+
+/* ─── Linien & Divider ───────────────────────────────────────────── */
+.rule {
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-petrol);
+}
+
+.rule-full {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-sand);
+}
+
+/* ─── Editoriales Prosa-Layout ───────────────────────────────────── */
+.prose-editorial p {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.0625rem);
+  line-height: 1.9;
+  color: #38362e;
+  margin-bottom: 1.4rem;
+}
+.prose-editorial p:last-child {
+  margin-bottom: 0;
+}
+.prose-editorial em {
+  font-style: italic;
+}
+
+/* ─── Button / CTA ───────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--color-petrol);
+  padding: 0.875rem 2rem;
+  transition: opacity 0.2s ease;
+}
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  border: 1px solid var(--color-sand);
+  padding: 0.875rem 2rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--color-petrol);
+  color: var(--color-petrol);
+}
+
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.875rem 2rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-ghost-light:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: white;
+}
+
+/* ─── Textlink ───────────────────────────────────────────────────── */
+.text-link {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-petrol);
+  transition: opacity 0.2s ease;
+}
+.text-link:hover { opacity: 0.7; }
+
+/* ─── Buchkarte ──────────────────────────────────────────────────── */
+.book-lift {
+  transition: transform 0.35s ease;
+}
+.book-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* ─── Rechtliche Seiten ──────────────────────────────────────────── */
+.prose-legal h2 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--color-sand);
+}
+.prose-legal p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-subtle);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+.prose-legal a {
+  color: var(--color-petrol);
+  text-decoration: underline;
+}

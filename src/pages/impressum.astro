@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Impressum – Dr. Jutta Meise" description="Impressum der Website von Dr. Jutta Meise.">
+  <section style="background: var(--color-ink);" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto">
+      <h1 style="font-family: var(--font-serif); color: white;" class="text-3xl font-normal mb-2">Impressum</h1>
+      <p style="font-family: var(--font-ui); color: var(--color-mist);" class="text-xs uppercase tracking-widest">Angaben gemäß § 5 TMG</p>
+    </div>
+  </section>
+  <section style="background: var(--color-parchment);" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto prose-legal">
+      <h2>Verantwortlich</h2>
+      <p>Dr. Jutta Meise<br />Hedwigstr. 158<br />46537 Dinslaken</p>
+      <h2>Kontakt</h2>
+      <p>E-Mail: <a href="mailto:jutta.meise@web.de">jutta.meise@web.de</a></p>
+      <h2>Haftung für Inhalte</h2>
+      <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+      <h2>Urheberrecht</h2>
+      <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung und Verbreitung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose-legal h2 { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; color: var(--color-ink); margin-top: 1.75rem; margin-bottom: 0.4rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-sand); }
+  .prose-legal p { font-family: var(--font-body); font-size: 0.9rem; color: #4b5563; line-height: 1.8; margin-bottom: 0.75rem; }
+  .prose-legal a { color: var(--color-petrol); text-decoration: underline; }
+</style>

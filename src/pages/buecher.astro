@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const buecher = [
+  {
+    titel: 'Angekommen',
+    untertitel: 'Times of Light and Darkness',
+    jahr: '2024',
+    seiten: '129 Seiten',
+    beschreibung: 'Hanna und Robert haben sich versprochen, füreinander da zu sein – ein Leben lang. Als Robert schwer erkrankt, wird dieses Versprechen auf eine harte Probe gestellt. Mitten im Alptraum finden die beiden zurück zu den Anfängen ihrer Beziehung – bis Hanna eine Entscheidung treffen muss, die alles verändert.',
+    zitat: 'Es erzählt vom Sterben, vom Tod, aber vor allem von der Liebe.',
+    isbn: '978-3-000-78045-5',
+    image: '/buch-angekommen.jpg',
+    coverFarbe: 'var(--color-petrol)',
+    amazon: 'https://www.amazon.de/dp/3000780459',
+    thalia: 'https://www.thalia.de/suche?sq=978-3-000-78045-5',
+    neu: true,
+  },
+  {
+    titel: 'Einäugig',
+    untertitel: 'Eine ungewöhnliche Spurensuche',
+    jahr: '2021',
+    seiten: '',
+    beschreibung: 'Hanna ist als Einzelkind aufgewachsen – und weiß doch, dass sie eine eineiige Zwillingsschwester hatte. Heidrun starb am Tag ihrer Geburt. Was wäre gewesen? Diese Frage treibt Hanna auf eine ungewöhnliche Spurensuche: nach der Frau, die sie hätte kennen können – und nach sich selbst.',
+    zitat: '',
+    isbn: '978-3-000-70114-6',
+    image: '/buch-einaeugig.jpg',
+    coverFarbe: 'var(--color-deep)',
+    amazon: 'https://www.amazon.de/dp/3000701141',
+    thalia: 'https://www.thalia.de/suche?sq=978-3-000-70114-6',
+    neu: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Bücher – Dr. Jutta Meise"
+  description="Die Bücher von Dr. Jutta Meise: Angekommen und Einäugig – Romane über Liebe, Verlust und die Suche nach sich selbst."
+>
+
+  <!-- Hero -->
+  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 pt-24 pb-20 sm:pt-32 sm:pb-28">
+    <div class="max-w-6xl mx-auto">
+      <p class="t-label mb-8" style="color: rgba(255,255,255,0.25);">Werke</p>
+      <h1 class="t-display" style="color: white; font-size: clamp(2.5rem, 5vw, 4rem);">Bücher</h1>
+      <div class="rule mt-8" style="background: rgba(255,255,255,0.2);"></div>
+    </div>
+  </section>
+
+
+  <!-- Bücher -->
+  <section style="background: var(--color-parchment);" class="py-24 sm:py-32 px-8 sm:px-14 lg:px-20">
+    <div class="max-w-6xl mx-auto space-y-32">
+      {buecher.map((buch, i) => (
+        <article class="grid lg:grid-cols-[5fr_6fr] gap-16 items-start">
+
+          <!-- Cover -->
+          <div class={i % 2 !== 0 ? 'lg:order-2' : ''}>
+            <div style={`background: ${buch.coverFarbe}; aspect-ratio: 2/3; max-width: 300px; position: relative; overflow: hidden;`}
+                 class={i % 2 !== 0 ? 'ml-auto' : ''}>
+              <img src={buch.image} alt={buch.titel} class="absolute inset-0 w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class={`flex flex-col justify-center ${i % 2 !== 0 ? 'lg:order-1' : ''}`}>
+            <p class="t-label-petrol mb-5">Roman · {buch.jahr}{buch.seiten ? ` · ${buch.seiten}` : ''}</p>
+            <h2 class="t-heading mb-2" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">{buch.titel}</h2>
+            <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.9375rem; margin-bottom: 1.75rem;">{buch.untertitel}</p>
+            <div class="rule mb-8"></div>
+            <p class="t-prose mb-8">{buch.beschreibung}</p>
+
+            {buch.zitat && (
+              <blockquote style="font-family: var(--font-serif); font-size: clamp(1rem, 1.5vw, 1.125rem); font-style: italic; color: var(--color-petrol); border-left: 2px solid var(--color-petrol); padding-left: 1.25rem; line-height: 1.6; margin-bottom: 2rem;">
+                „{buch.zitat}"
+              </blockquote>
+            )}
+
+            <div style="border-top: 1px solid var(--color-sand); padding-top: 1.25rem; margin-bottom: 2rem;">
+              <p class="t-label">ISBN {buch.isbn}</p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <a href={buch.amazon} target="_blank" rel="noopener noreferrer" class="btn-primary">Bei Amazon</a>
+              <a href={buch.thalia} target="_blank" rel="noopener noreferrer" class="btn-ghost">Bei Thalia</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- Stiller Abschluss -->
+  <section style="background: var(--color-cream); border-top: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 py-20">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-end gap-8">
+      <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.9375rem;">
+        Für Leseexemplare oder Presseanfragen<br />bitte direkt Kontakt aufnehmen.
+      </p>
+      <a href="/kontakt" class="text-link">Kontakt →</a>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const kommend: { datum: string; uhrzeit: string; titel: string; ort: string; info: string; tickets: string }[] = [];
+
+const vergangen = [
+  {
+    datum: '2025',
+    titel: 'Lesung & Gespräch',
+    ort: 'Dinslaken',
+  },
+  {
+    datum: '2024',
+    titel: 'Lesung: Angekommen',
+    ort: 'Niederrhein',
+  },
+];
+---
+
+<BaseLayout
+  title="Veranstaltungen – Dr. Jutta Meise"
+  description="Lesungen, Gespräche und Veranstaltungen mit Dr. Jutta Meise – aktuelle Termine und Rückblick."
+>
+
+  <!-- Hero -->
+  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 pt-24 pb-20 sm:pt-32 sm:pb-28">
+    <div class="max-w-6xl mx-auto">
+      <p class="t-label mb-8" style="color: rgba(255,255,255,0.25);">Termine</p>
+      <h1 class="t-display" style="color: white; font-size: clamp(2.5rem, 5vw, 4rem);">Veranstaltungen</h1>
+      <div class="rule mt-8" style="background: rgba(255,255,255,0.2);"></div>
+    </div>
+  </section>
+
+
+  <!-- Kommende Veranstaltungen -->
+  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="flex items-center gap-8 mb-14">
+        <h2 class="t-heading" style="font-size: clamp(1.5rem, 2.5vw, 2rem); white-space: nowrap;">Kommende Termine</h2>
+        <div style="flex: 1; height: 1px; background: var(--color-sand);"></div>
+      </div>
+
+      {kommend.length === 0 ? (
+        <div style="border-left: 2px solid var(--color-sand); padding-left: 2rem; max-width: 40ch;">
+          <p style="font-family: var(--font-serif); color: var(--color-subtle); font-style: italic; font-size: 1.0625rem; margin-bottom: 0.5rem;">
+            Derzeit keine Termine geplant.
+          </p>
+          <p class="t-label">Neue Veranstaltungen werden hier rechtzeitig angekündigt.</p>
+        </div>
+      ) : (
+        <div class="space-y-6">
+          {kommend.map(v => (
+            <article style="border-left: 2px solid var(--color-petrol); padding-left: 2rem;">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+                <div>
+                  <p class="t-label-petrol mb-2">{v.datum} · {v.uhrzeit}</p>
+                  <h3 class="t-title">{v.titel}</h3>
+                </div>
+                {v.tickets && (
+                  <a href={v.tickets} target="_blank" rel="noopener noreferrer" class="btn-primary flex-shrink-0">
+                    Tickets
+                  </a>
+                )}
+              </div>
+              <p class="t-label mb-3">{v.ort}</p>
+              <p class="t-prose">{v.info}</p>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+
+  <!-- Rückblick -->
+  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-20">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="flex items-center gap-8 mb-10">
+        <h2 class="t-heading" style="font-size: clamp(1.25rem, 2vw, 1.5rem); white-space: nowrap; opacity: 0.5;">Rückblick</h2>
+        <div style="flex: 1; height: 1px; background: var(--color-sand);"></div>
+      </div>
+
+      <div>
+        {vergangen.map(v => (
+          <div style="border-bottom: 1px solid var(--color-sand); opacity: 0.6;" class="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <div>
+              <p style="font-family: var(--font-serif); color: var(--color-ink); font-size: 1rem;">{v.titel}</p>
+              <p class="t-label mt-1">{v.ort}</p>
+            </div>
+            <span class="t-label flex-shrink-0">{v.datum}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Lesungsanfrage -->
+  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 py-28 sm:py-32">
+    <div class="max-w-4xl">
+      <p class="t-label mb-8" style="color: rgba(255,255,255,0.25);">Anfragen</p>
+      <p class="t-quote text-white" style="font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.4; margin-bottom: 1.5rem;">
+        Lesung für Ihre Veranstaltung?
+      </p>
+      <p style="font-family: var(--font-body); color: rgba(255,255,255,0.5); font-size: 0.9375rem; line-height: 1.8; max-width: 44ch; margin-bottom: 2.5rem;">
+        Für Anfragen zu Lesungen, Podiumsgesprächen oder literarischen Abenden stehe ich gerne zur Verfügung.
+      </p>
+      <a href="/kontakt" class="text-link" style="color: var(--color-fog);">Anfrage stellen →</a>
+    </div>
+  </section>
+
+</BaseLayout>

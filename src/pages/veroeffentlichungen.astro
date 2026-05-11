@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const kategorien = [
+  {
+    titel: 'Bücher',
+    eintraege: [
+      { titel: 'Angekommen – Times of Light and Darkness', quelle: 'Eigenverlag', jahr: '2024', sprache: 'Deutsch', link: 'https://www.amazon.de/dp/3000780459' },
+      { titel: 'Einäugig – Eine ungewöhnliche Spurensuche', quelle: 'Eigenverlag', jahr: '2021', sprache: 'Deutsch', link: 'https://www.amazon.de/dp/3000701141' },
+    ],
+  },
+  {
+    titel: 'Presse & Medien',
+    eintraege: [
+      { titel: 'Dinslakener Autorin auf Spurensuche nach Zwillingsschwester', quelle: 'NRZ – Neue Ruhr Zeitung', jahr: '2021', sprache: 'Deutsch', link: 'https://www.nrz.de/staedte/dinslaken-huenxe-voerde/article240582974/Dinslakener-Autorin-auf-Spurensuche-nach-Zwillingsschwester.html' },
+      { titel: 'Dinslakenerin plant Buch über die Geschichte der Neustraße', quelle: 'NRZ – Neue Ruhr Zeitung', jahr: '2020', sprache: 'Deutsch', link: 'https://www.nrz.de/staedte/dinslaken-huenxe-voerde/article234563143/Dinslakenerin-plant-Buch-ueber-die-Geschichte-der-Neustrasse.html' },
+    ],
+  },
+  {
+    titel: 'Weitere Veröffentlichungen',
+    eintraege: [
+      { titel: 'Beitrag im Jahrbuch des Kreises Wesel', quelle: 'Kreis Wesel', jahr: '2024', sprache: 'Deutsch', link: '' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Veröffentlichungen – Dr. Jutta Meise"
+  description="Essays, Artikel und Beiträge von Dr. Jutta Meise – auf Deutsch und Englisch."
+>
+
+  <!-- Hero -->
+  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 pt-24 pb-20 sm:pt-32 sm:pb-28">
+    <div class="max-w-6xl mx-auto">
+      <p class="t-label mb-8" style="color: rgba(255,255,255,0.25);">Texte</p>
+      <h1 class="t-display" style="color: white; font-size: clamp(2.5rem, 5vw, 4rem);">Veröffentlichungen</h1>
+      <div class="rule mt-8" style="background: rgba(255,255,255,0.2);"></div>
+    </div>
+  </section>
+
+
+  <!-- Publikationen -->
+  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto space-y-20">
+      {kategorien.map(kat => (
+        <div>
+          <div class="flex items-center gap-8 mb-10">
+            <h2 class="t-heading" style="font-size: clamp(1.25rem, 2vw, 1.5rem); white-space: nowrap;">
+              {kat.titel}
+            </h2>
+            <div style="flex: 1; height: 1px; background: var(--color-sand);"></div>
+          </div>
+
+          <div>
+            {kat.eintraege.map(e => (
+              <div style="border-bottom: 1px solid var(--color-sand);" class="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
+                <div class="flex-1">
+                  <p style="font-family: var(--font-serif); color: var(--color-ink); font-size: 1rem; margin-bottom: 0.25rem;">
+                    {e.link
+                      ? <a href={e.link} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-petrol)] transition-colors">{e.titel}</a>
+                      : e.titel
+                    }
+                  </p>
+                  <p class="t-label">{e.quelle}</p>
+                </div>
+                <div class="flex items-center gap-4 flex-shrink-0">
+                  <span class="t-label" style={e.sprache === 'Englisch' ? 'color: var(--color-petrol);' : ''}>{e.sprache}</span>
+                  <span class="t-label">{e.jahr}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- Stiller Abschluss -->
+  <section style="background: var(--color-cream); border-top: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 py-20">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-end gap-8">
+      <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.9375rem;">
+        Für vollständige bibliografische Angaben, Rezensionen<br />oder Kooperationsanfragen stehe ich gerne zur Verfügung.
+      </p>
+      <a href="/kontakt" class="text-link">Kontakt →</a>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Datenschutz – Dr. Jutta Meise" description="Datenschutzerklärung der Website von Dr. Jutta Meise.">
+  <section style="background: var(--color-ink);" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto">
+      <h1 style="font-family: var(--font-serif); color: white;" class="text-3xl font-normal mb-2">Datenschutz</h1>
+      <p style="font-family: var(--font-ui); color: var(--color-mist);" class="text-xs uppercase tracking-widest">Keine Cookies · Kein Tracking</p>
+    </div>
+  </section>
+  <section style="background: var(--color-parchment);" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto prose-legal">
+      <h2>1. Verantwortliche</h2>
+      <p>Dr. Jutta Meise<br />Hedwigstr. 158<br />46537 Dinslaken<br />E-Mail: <a href="mailto:jutta.meise@web.de">jutta.meise@web.de</a></p>
+      <h2>2. Grundsatz</h2>
+      <p>Diese Website wurde bewusst datensparsam gestaltet. Es werden keine Cookies gesetzt und keine Tracking-Werkzeuge eingesetzt.</p>
+      <h2>3. Hosting</h2>
+      <p>Diese Website wird über <strong>Cloudflare Pages</strong> (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA) bereitgestellt. Beim Aufruf werden Server-Logfiles (IP-Adresse, Datum, URL, Browser) vom Hosting-Anbieter technisch erfasst. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <h2>4. Kontaktformular</h2>
+      <p>Wenn Sie das Kontaktformular nutzen, werden Ihre Angaben zur Bearbeitung der Anfrage verarbeitet und nicht ohne Einwilligung an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+      <h2>5. Keine Cookies · Kein Tracking</h2>
+      <p>Diese Website setzt keine Cookies und verwendet keine Analyse-Werkzeuge (Google Analytics o. ä.).</p>
+      <h2>6. Ihre Rechte</h2>
+      <p>Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17) und Widerspruch (Art. 21 DSGVO). Kontakt: <a href="mailto:jutta.meise@web.de">jutta.meise@web.de</a></p>
+      <h2>7. Stand</h2>
+      <p>Mai 2026</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose-legal h2 { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; color: var(--color-ink); margin-top: 1.75rem; margin-bottom: 0.4rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-sand); }
+  .prose-legal p { font-family: var(--font-body); font-size: 0.9rem; color: #4b5563; line-height: 1.8; margin-bottom: 0.75rem; }
+  .prose-legal a { color: var(--color-petrol); text-decoration: underline; }
+</style>
