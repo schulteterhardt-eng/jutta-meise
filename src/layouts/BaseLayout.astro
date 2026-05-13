@@ -85,9 +85,9 @@ const path = Astro.url.pathname;
 
     <!-- Mobile Menu -->
     <div id="mobile-nav" class="hidden lg:hidden" style="background: var(--color-deep); border-top: 1px solid rgba(255,255,255,0.06);">
-      <nav class="max-w-6xl mx-auto px-6 py-7 flex flex-col gap-5">
+      <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
         {nav.map(item => (
-          <a href={item.href} class="nav-link text-sm">{item.label}</a>
+          <a href={item.href} class="nav-link text-sm" style="padding-top: 0.5rem; padding-bottom: 0.5rem; display: block;">{item.label}</a>
         ))}
       </nav>
     </div>
