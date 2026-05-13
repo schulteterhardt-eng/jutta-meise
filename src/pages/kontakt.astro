@@ -18,12 +18,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- Kontakt-Inhalt -->
-  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32">
+  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-28 sm:py-40">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[2fr_3fr] gap-16 lg:gap-24 items-start">
 
       <!-- Foto -->
       <div>
-        <div class="overflow-hidden" style="aspect-ratio: 3/4; max-width: 320px;">
+        <div class="overflow-hidden" style="aspect-ratio: 3/4; max-width: 320px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
           <img
             src="/portrait.jpg"
             alt="Dr. Jutta Meise"
@@ -33,34 +33,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- Kontaktinfo -->
-      <div>
+      <div style="padding-top: 1rem;">
         <p class="t-label-petrol mb-6">Direktkontakt</p>
-        <h2 class="t-heading mb-6" style="font-size: clamp(1.75rem, 3vw, 2.5rem); max-width: 22ch;">
+        <h2 class="t-heading mb-6" style="font-size: clamp(1.75rem, 3vw, 2.5rem); max-width: 22ch; line-height: 1.25;">
           Ich freue mich<br />auf Ihre Nachricht.
         </h2>
-        <div class="rule mb-8"></div>
+        <div class="rule mb-10"></div>
 
-        <div class="prose-editorial">
+        <div class="prose-editorial" style="max-width: 42ch;">
           <p>
             Für Lesungsanfragen, Pressekontakt oder allgemeine Fragen erreichen Sie mich per E-Mail.
             Ich antworte in der Regel innerhalb weniger Tage.
           </p>
         </div>
 
-        <a
-          href="mailto:jutta.meise@web.de"
-          class="btn-primary mt-8 inline-flex items-center gap-3"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-          </svg>
-          jutta.meise@web.de
-        </a>
+        <!-- E-Mail -->
+        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--color-sand);">
+          <p class="t-label" style="margin-bottom: 0.75rem;">E-Mail</p>
+          <a
+            href="mailto:jutta.meise@web.de"
+            style="font-family: var(--font-serif); font-size: clamp(1.0625rem, 2vw, 1.25rem); color: var(--color-petrol); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+            class="hover:opacity-70 transition-opacity"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="flex-shrink: 0;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+            </svg>
+            jutta.meise@web.de
+          </a>
+        </div>
 
         <!-- Social -->
-        <div class="mt-12">
-          <p class="t-label mb-5">Folgen</p>
-          <div class="flex gap-6">
+        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--color-sand);">
+          <p class="t-label" style="margin-bottom: 1.25rem;">Folgen</p>
+          <div class="flex gap-8">
             <a
               href="https://www.instagram.com/meise.jutta"
               target="_blank"
