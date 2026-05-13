@@ -7,6 +7,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Dr. Jutta Meise – Autorin auf Deutsch und Englisch. Romane über Liebe, Verlust und Erinnerung."
 >
 
+<style>
+  /* ── Keyframes ──────────────────────────────────────────── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── Hero: gestaffelt beim Laden ────────────────────────── */
+  .hero-label  { animation: fade-up  0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s both; }
+  .hero-h1     { animation: fade-up  1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.50s both; }
+  .hero-rule   { animation: fade-in  0.8s ease                                  0.95s both; }
+  .hero-byline { animation: fade-up  0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.10s both; }
+  .hero-scroll { animation: fade-in  1.0s ease                                  1.50s both; }
+
+  /* ── Scroll-Reveal (via IntersectionObserver) ───────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.in-view         { opacity: 1; transform: translateY(0); }
+  .reveal-d1              { transition-delay: 0.12s; }
+  .reveal-d2              { transition-delay: 0.24s; }
+
+  /* ── Buchcover-Hover ─────────────────────────────────────── */
+  .book-cover {
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.55s ease;
+  }
+  .book-cover:hover {
+    transform: translateY(-7px) scale(1.018);
+    box-shadow: 0 36px 80px rgba(0,0,0,0.32) !important;
+  }
+
+  /* ── prefers-reduced-motion ──────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-label, .hero-h1, .hero-rule, .hero-byline, .hero-scroll,
+    .reveal, .reveal-d1, .reveal-d2 {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .book-cover { transition: none !important; }
+  }
+</style>
+
+
   <!-- ① Cover – atmosphärisches Intro, kein Business-Hero -->
   <section class="relative overflow-hidden" style="min-height: 100svh; background: var(--color-ink);">
     <img
@@ -18,40 +71,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     />
     <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
 
-    <div class="relative z-10 flex flex-col justify-end h-full px-8 sm:px-14 lg:px-20 pb-16 sm:pb-24" style="min-height: 100svh;">
+    <div class="relative z-10 flex flex-col justify-end h-full px-8 sm:px-14 lg:px-20 pb-20 sm:pb-32" style="min-height: 100svh;">
       <div class="max-w-3xl">
-        <p class="t-label mb-8" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
-        <h1 class="t-display text-white mb-6" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+        <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
+        <h1 class="t-display text-white mb-8 hero-h1" style="font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -0.025em; line-height: 1.08;">
           Zwischen Sprache,<br />Erinnerung<br />und Leben.
         </h1>
-        <div class="rule mb-7" style="background: rgba(255,255,255,0.35);"></div>
-        <p style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.55); letter-spacing: 0.16em; text-transform: uppercase;">
+        <div class="rule mb-9 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
+        <p class="hero-byline" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; text-transform: uppercase;">
           Dr. Jutta Meise &nbsp;·&nbsp; Deutsch &amp; Englisch &nbsp;·&nbsp; Veröffentlichungen
         </p>
       </div>
     </div>
 
     <!-- Scroll-Hinweis -->
-    <div class="absolute bottom-8 right-10 hidden sm:flex flex-col items-center gap-3" aria-hidden="true">
-      <div style="width: 1px; height: 60px; background: rgba(255,255,255,0.2);"></div>
-      <p style="font-family: var(--font-ui); font-size: 0.625rem; color: rgba(255,255,255,0.3); letter-spacing: 0.2em; text-transform: uppercase; writing-mode: vertical-rl;">Scrollen</p>
+    <div class="absolute bottom-8 right-10 hidden sm:flex flex-col items-center gap-3 hero-scroll" aria-hidden="true">
+      <div style="width: 1px; height: 60px; background: rgba(255,255,255,0.18);"></div>
+      <p style="font-family: var(--font-ui); font-size: 0.625rem; color: rgba(255,255,255,0.28); letter-spacing: 0.2em; text-transform: uppercase; writing-mode: vertical-rl;">Scrollen</p>
     </div>
   </section>
 
 
   <!-- ② Erstes Buch – editorial, Bild dominant -->
-  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-20 sm:py-28 overflow-hidden">
+  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[5fr_4fr] gap-16 items-center">
 
       <!-- Buchcover -->
-      <div class="flex justify-center lg:justify-start">
-        <div style="max-width: 220px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.25);">
+      <div class="flex justify-center lg:justify-start reveal">
+        <div class="book-cover" style="max-width: 220px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.25);">
           <img src="/buch-angekommen.jpg" alt="Angekommen" class="absolute inset-0 w-full h-full object-cover" />
         </div>
       </div>
 
       <!-- Text -->
-      <div class="flex flex-col justify-center">
+      <div class="flex flex-col justify-center reveal reveal-d2">
         <p class="t-label-petrol mb-3">Roman · 2024</p>
         <h2 class="t-heading mb-2" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">Angekommen</h2>
         <p style="font-family: var(--font-body); font-size: 0.9375rem; color: var(--color-subtle); font-style: italic; margin-bottom: 1.5rem;">Times of Light and Darkness</p>
@@ -71,11 +124,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ③ Großes Zitat – typografische Sektion -->
-  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 py-28 sm:py-36 overflow-hidden">
+  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 py-32 sm:py-40 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-end">
 
       <!-- Katze -->
-      <div class="flex justify-center items-end">
+      <div class="flex justify-center items-end reveal">
         <img
           src="/katze-zitat.png"
           alt=""
@@ -85,13 +138,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- Zitat -->
-      <div>
-        <p class="t-label mb-8" style="color: rgba(255,255,255,0.25);">In eigenen Worten</p>
+      <div class="reveal reveal-d2">
+        <p class="t-label mb-8" style="color: rgba(255,255,255,0.22);">In eigenen Worten</p>
         <blockquote class="t-quote" style="color: white; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.35;">
           „Ich schreibe, weil manche Dinge<br class="hidden sm:block" />
           nur in der Sprache wirklich ankommen."
         </blockquote>
-        <p style="font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 2rem;">
+        <p style="font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.28); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2.5rem;">
           Dr. Jutta Meise
         </p>
       </div>
@@ -100,18 +153,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ④ Zweites Buch – gegenläufiges Layout -->
-  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-20 sm:py-28 overflow-hidden">
+  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[4fr_5fr] gap-16 items-center">
 
       <!-- Buchcover -->
-      <div class="flex justify-center lg:justify-start order-1 lg:order-2">
-        <div style="max-width: 220px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
+      <div class="flex justify-center lg:justify-start order-1 lg:order-2 reveal">
+        <div class="book-cover" style="max-width: 220px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
           <img src="/buch-einaeugig.jpg" alt="Einäugig" class="absolute inset-0 w-full h-full object-cover" />
         </div>
       </div>
 
       <!-- Text -->
-      <div class="flex flex-col justify-center order-2 lg:order-1">
+      <div class="flex flex-col justify-center order-2 lg:order-1 reveal reveal-d2">
         <p class="t-label-petrol mb-6">Roman · 2021</p>
         <h2 class="t-heading mb-5" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
           Einäugig
@@ -132,11 +185,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ⑤ Über die Autorin – persönlich, nicht biographisch-trocken -->
-  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-28 sm:py-36 overflow-hidden">
+  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-32 sm:py-40 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-24 items-center">
 
       <!-- Text -->
-      <div>
+      <div class="reveal">
         <p class="t-label-petrol mb-8">Über die Autorin</p>
         <h2 class="t-heading mb-8" style="font-size: clamp(2rem, 3.5vw, 3rem); max-width: 20ch;">
           Eine Stimme,<br />die sich Zeit nimmt.
@@ -152,7 +205,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- Foto -->
-      <div class="relative">
+      <div class="relative reveal reveal-d2">
         <div class="overflow-hidden" style="aspect-ratio: 3/4; max-width: 340px; margin-left: auto;">
           <img
             src="/portrait.jpg"
@@ -160,7 +213,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             class="w-full h-full object-cover object-top"
           />
         </div>
-        <!-- Dekorative Linie -->
         <div
           class="absolute hidden lg:block"
           style="width: 1px; height: 80px; background: var(--color-sand); top: -40px; right: -20px;"
@@ -173,7 +225,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- ⑥ Ruhiger Abschluss – kein aggressiver CTA -->
   <section style="background: var(--color-deep); border-top: 1px solid rgba(255,255,255,0.05);" class="px-8 sm:px-14 lg:px-20 py-24">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 reveal">
 
       <div>
         <p class="t-label mb-5" style="color: rgba(255,255,255,0.25);">Kontakt</p>
@@ -222,5 +274,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     </div>
   </section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </BaseLayout>
