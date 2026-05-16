@@ -126,18 +126,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,31,46,0.08) 0%, rgba(26,31,46,0.5) 65%, rgba(26,31,46,1) 100%);" aria-hidden="true"></div>
     </div>
 
-    <!-- Desktop: Linke Textspalte (dominant) / Rechte Portraitspalte (atmosphärisch) -->
-    <div class="lg:grid lg:grid-cols-[65fr_35fr]" style="min-height: 100svh;">
+    <!-- Desktop: Text (60%) + Portrait (40%) — cinematic editorial balance -->
+    <div class="lg:grid lg:grid-cols-[60fr_40fr]" style="min-height: 100svh;">
 
-      <!-- Text -->
-      <div class="relative z-10 flex flex-col justify-end px-8 sm:px-14 lg:px-20 xl:px-28 pb-20 sm:pb-28 pt-12 lg:pt-0 lg:min-h-screen hero-inner">
+      <!-- Text — vertikal zentriert auf Desktop -->
+      <div class="relative z-10 flex flex-col justify-end lg:justify-center px-8 sm:px-14 lg:px-16 xl:px-20 pb-16 sm:pb-24 pt-12 lg:py-24 hero-inner lg:min-h-screen">
         <div style="max-width: 34rem;">
           <p class="t-label mb-12 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
           <h1 class="t-display text-white mb-10 hero-h1" style="font-size: clamp(3.25rem, 7.5vw, 6rem); letter-spacing: -0.03em; line-height: 1.05;">
             Zwischen Sprache,<br />Erinnerung<br />und Leben.
           </h1>
           <div class="rule mb-10 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
-          <p class="hero-byline mb-12" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; text-transform: uppercase;">
+          <p class="hero-byline mb-12" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; text-transform: uppercase;">
             Dr. Jutta Meise &nbsp;·&nbsp; Autorin &nbsp;·&nbsp; Deutsch &amp; Englisch
           </p>
           <div class="hero-cta flex flex-wrap gap-4">
@@ -147,19 +147,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- Portrait (Desktop) — atmosphärisch, nicht dominant -->
+      <!-- Portrait (Desktop) — klar erkennbar, weich, atmosphärisch -->
       <div class="relative hidden lg:block overflow-hidden">
         <img
           src="/Jutta_meise.jpeg"
           alt=""
           aria-hidden="true"
           class="hero-bg absolute inset-0 w-full h-full object-cover"
-          style="object-position: 85% 10%; filter: saturate(0.55) brightness(0.75);"
+          style="object-position: 80% 10%; filter: saturate(0.78) brightness(0.88);"
         />
-        <!-- Starker Links-Fade: Portrait tritt hinter Text zurück -->
-        <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(26,31,46,1) 0%, rgba(26,31,46,0.82) 30%, rgba(26,31,46,0.38) 60%, rgba(26,31,46,0.08) 100%);" aria-hidden="true"></div>
-        <!-- Unten -->
-        <div class="absolute inset-x-0 bottom-0" style="height: 40%; background: linear-gradient(to top, rgba(26,31,46,0.75) 0%, transparent 100%);" aria-hidden="true"></div>
+        <!-- Links-Fade: dunkel → durchsichtig, Portrait ab 40% sichtbar -->
+        <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(26,31,46,1) 0%, rgba(26,31,46,0.72) 25%, rgba(26,31,46,0.22) 55%, rgba(26,31,46,0.04) 100%);" aria-hidden="true"></div>
+        <!-- Unten: subtiler Ausklang -->
+        <div class="absolute inset-x-0 bottom-0" style="height: 35%; background: linear-gradient(to top, rgba(26,31,46,0.6) 0%, transparent 100%);" aria-hidden="true"></div>
       </div>
 
     </div>
