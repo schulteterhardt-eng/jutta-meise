@@ -5,9 +5,16 @@ const kommend: { datum: string; uhrzeit: string; titel: string; ort: string; inf
 
 const vergangen = [
   {
-    datum: '2025',
-    titel: 'Lesung & Gespräch',
-    ort: 'Dinslaken',
+    datum: '21. Juli 2025',
+    titel: 'Lesung in der LESEZEIT',
+    ort: 'Voerde',
+    foto: '/lesung-lesezeit-1.jpg',
+    fotoAlt: 'Lesung in der LESEZEIT Voerde, Juli 2025',
+    presse: [
+      { titel: 'Rheinische Post', datum: '21.7.2025' },
+      { titel: 'NRZ Voerde', datum: '23.7.2025' },
+      { titel: 'Rheinische Post Voerde', datum: '24.7.2025' },
+    ],
   },
   {
     datum: '2024',
@@ -84,12 +91,26 @@ const vergangen = [
 
       <div>
         {vergangen.map(v => (
-          <div style="border-bottom: 1px solid var(--color-sand); opacity: 0.6;" class="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-            <div>
-              <p style="font-family: var(--font-serif); color: var(--color-ink); font-size: 1rem;">{v.titel}</p>
-              <p class="t-label mt-1">{v.ort}</p>
+          <div style="border-bottom: 1px solid var(--color-sand);" class="py-8">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4" style="opacity: 0.6;">
+              <div>
+                <p style="font-family: var(--font-serif); color: var(--color-ink); font-size: 1rem;">{v.titel}</p>
+                <p class="t-label mt-1">{v.ort}</p>
+              </div>
+              <span class="t-label flex-shrink-0">{v.datum}</span>
             </div>
-            <span class="t-label flex-shrink-0">{v.datum}</span>
+            {v.foto && (
+              <img
+                src={v.foto}
+                alt={v.fotoAlt}
+                style="width: 100%; max-width: 480px; height: auto; margin-bottom: 1rem; opacity: 0.85;"
+              />
+            )}
+            {v.presse && v.presse.length > 0 && (
+              <p class="t-label" style="opacity: 0.5;">
+                Presse: {v.presse.map((p, i) => `${p.titel} (${p.datum})`).join(' · ')}
+              </p>
+            )}
           </div>
         ))}
       </div>
