@@ -173,20 +173,19 @@ body {
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-ui);
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: white;
   background: var(--color-petrol);
-  padding: 0.9rem 2.25rem;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 0.75rem 1.875rem;
+  border-radius: 1px;
   transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.3s ease;
 }
 .btn-primary:hover {
-  opacity: 0.92;
+  opacity: 0.88;
   transform: translateY(-1px);
-  box-shadow: 0 8px 28px rgba(46,125,140,0.32), 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(45,122,138,0.28);
 }
 
 .btn-ghost {
@@ -195,19 +194,18 @@ body {
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-ui);
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-ink);
   border: 1px solid var(--color-sand);
-  padding: 0.9rem 2.25rem;
-  border-radius: 2px;
-  transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  padding: 0.75rem 1.875rem;
+  border-radius: 1px;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 .btn-ghost:hover {
   border-color: var(--color-petrol);
   color: var(--color-petrol);
-  box-shadow: 0 4px 16px rgba(46,125,140,0.12);
   transform: translateY(-1px);
 }
 
@@ -217,19 +215,18 @@ body {
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-ui);
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  padding: 0.9rem 2.25rem;
-  border-radius: 2px;
-  transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 0.75rem 1.875rem;
+  border-radius: 1px;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 .btn-ghost-light:hover {
-  border-color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.65);
   color: white;
-  box-shadow: 0 4px 20px rgba(255,255,255,0.07);
   transform: translateY(-1px);
 }
 

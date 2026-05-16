@@ -124,41 +124,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="relative z-10 flex flex-col justify-center min-h-screen px-8 sm:px-14 lg:px-20 xl:px-28 py-20">
       <div class="max-w-6xl mx-auto w-full">
 
-        <div class="lg:flex lg:items-end lg:gap-20">
-
-          <!-- Typografie-Block -->
-          <div class="flex-1">
-            <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
-            <h1 class="text-white hero-h1" style="font-family: var(--font-serif); font-size: clamp(3.5rem, 8.5vw, 6.5rem); letter-spacing: -0.03em; line-height: 1.02; font-weight: 400; margin-bottom: 2rem;">
-              Zwischen<br />Sprache,<br />Erinnerung<br />und Leben.
-            </h1>
-            <div class="rule mb-8 hero-rule" style="background: rgba(255,255,255,0.22);"></div>
-            <p class="hero-byline" style="font-family: var(--font-body); font-size: clamp(0.9375rem, 1.4vw, 1.0625rem); color: rgba(255,255,255,0.48); line-height: 1.75; max-width: 40ch; margin-bottom: 3.5rem;">
-              Romane, Essays und literarische Veröffentlichungen — auf Deutsch und Englisch.
-            </p>
-            <div class="hero-cta flex flex-wrap gap-4">
-              <a href="/buecher" class="btn-primary">Meine Bücher →</a>
-              <a href="/ueber-die-autorin" class="btn-ghost-light">Über die Autorin</a>
-            </div>
+        <div style="max-width: 42rem;">
+          <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
+          <h1 class="text-white hero-h1" style="font-family: var(--font-serif); font-size: clamp(3.5rem, 8.5vw, 6.5rem); letter-spacing: -0.03em; line-height: 1.02; font-weight: 400; margin-bottom: 2rem;">
+            Zwischen<br />Sprache,<br />Erinnerung<br />und Leben.
+          </h1>
+          <div class="rule mb-8 hero-rule" style="background: rgba(255,255,255,0.22);"></div>
+          <p class="hero-byline" style="font-family: var(--font-body); font-size: clamp(0.9375rem, 1.4vw, 1.0625rem); color: rgba(255,255,255,0.48); line-height: 1.75; max-width: 40ch; margin-bottom: 4rem;">
+            Romane, Essays und literarische Veröffentlichungen — auf Deutsch und Englisch.
+          </p>
+          <div class="hero-cta flex flex-wrap gap-4">
+            <a href="/buecher" class="btn-primary">Meine Bücher →</a>
+            <a href="/ueber-die-autorin" class="btn-ghost-light">Über die Autorin</a>
           </div>
-
-          <!-- Editorial-Portrait: klein, zurückhaltend, nur Desktop -->
-          <div class="hidden lg:flex lg:flex-col lg:items-start hero-cta" style="flex-shrink: 0; padding-bottom: 0.25rem;">
-            <div class="relative overflow-hidden" style="width: 185px; height: 255px; box-shadow: 0 6px 24px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.14); transform: rotate(-0.6deg);">
-              <img
-                src="/Jutta_meise.jpeg"
-                alt="Dr. Jutta Meise"
-                class="w-full h-full object-cover"
-                style="object-position: center 10%; filter: sepia(0.09) saturate(0.92) brightness(0.91) contrast(1.08);"
-              />
-              <!-- Leichte Vignette — Ränder weich, Gesicht klar -->
-              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 90% at 50% 32%, transparent 28%, rgba(8,6,14,0.45) 100%);" aria-hidden="true"></div>
-            </div>
-            <p style="font-family: var(--font-ui); font-size: 0.625rem; color: rgba(255,255,255,0.18); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.875rem;">
-              Dr. Jutta Meise
-            </p>
-          </div>
-
         </div>
       </div>
     </div>
@@ -166,7 +144,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ② Buch: Angekommen -->
-  <section style="background: var(--color-parchment);" class="relative px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
+  <section style="background: var(--color-parchment);" class="relative px-8 sm:px-14 lg:px-20 py-28 sm:py-36 overflow-hidden">
     <img
       src="/katze-zitat.png"
       alt=""
@@ -199,7 +177,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ③ Großes Zitat – typografische Sektion -->
-  <section style="background: var(--color-ink);" class="px-8 sm:px-14 lg:px-20 py-32 sm:py-40 overflow-hidden">
+  <section style="background: #1c1814;" class="px-8 sm:px-14 lg:px-20 py-36 sm:py-44 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-end">
 
       <div class="flex justify-center items-end reveal">
@@ -226,7 +204,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ④ Buch: Einäugig -->
-  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
+  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-28 sm:py-36 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[4fr_5fr] gap-16 items-center">
       <div class="flex justify-center lg:justify-start order-1 lg:order-2 reveal">
         <div class="book-cover" style="max-width: 280px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.22);">
@@ -267,7 +245,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ⑥ Über die Autorin -->
-  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-32 sm:py-40 overflow-hidden">
+  <section style="background: var(--color-cream);" class="px-8 sm:px-14 lg:px-20 py-36 sm:py-44 overflow-hidden">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-24 items-center">
 
       <div class="reveal">
@@ -338,7 +316,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ⑧ Abschluss -->
-  <section style="background: var(--color-deep); border-top: 1px solid rgba(255,255,255,0.05);" class="px-8 sm:px-14 lg:px-20 py-24">
+  <section style="background: var(--color-ink); border-top: 1px solid rgba(255,255,255,0.06);" class="px-8 sm:px-14 lg:px-20 py-28 sm:py-32">
     <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 reveal">
 
       <div>
