@@ -126,18 +126,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,31,46,0.08) 0%, rgba(26,31,46,0.5) 65%, rgba(26,31,46,1) 100%);" aria-hidden="true"></div>
     </div>
 
-    <!-- Desktop: Linke Textspalte / Rechte Portraitspalte -->
-    <div class="lg:grid lg:grid-cols-[55fr_45fr]" style="min-height: 100svh;">
+    <!-- Desktop: Linke Textspalte (dominant) / Rechte Portraitspalte (atmosphärisch) -->
+    <div class="lg:grid lg:grid-cols-[65fr_35fr]" style="min-height: 100svh;">
 
       <!-- Text -->
-      <div class="relative z-10 flex flex-col justify-end px-8 sm:px-14 lg:px-16 xl:px-20 pb-16 sm:pb-24 pt-12 lg:pt-0 lg:min-h-screen hero-inner">
-        <div class="max-w-xl">
-          <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
-          <h1 class="t-display text-white mb-8 hero-h1" style="font-size: clamp(3.25rem, 7.5vw, 6rem); letter-spacing: -0.03em; line-height: 1.05;">
+      <div class="relative z-10 flex flex-col justify-end px-8 sm:px-14 lg:px-20 xl:px-28 pb-20 sm:pb-28 pt-12 lg:pt-0 lg:min-h-screen hero-inner">
+        <div style="max-width: 34rem;">
+          <p class="t-label mb-12 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
+          <h1 class="t-display text-white mb-10 hero-h1" style="font-size: clamp(3.25rem, 7.5vw, 6rem); letter-spacing: -0.03em; line-height: 1.05;">
             Zwischen Sprache,<br />Erinnerung<br />und Leben.
           </h1>
-          <div class="rule mb-9 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
-          <p class="hero-byline mb-10" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; text-transform: uppercase;">
+          <div class="rule mb-10 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
+          <p class="hero-byline mb-12" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; text-transform: uppercase;">
             Dr. Jutta Meise &nbsp;·&nbsp; Autorin &nbsp;·&nbsp; Deutsch &amp; Englisch
           </p>
           <div class="hero-cta flex flex-wrap gap-4">
@@ -147,17 +147,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- Portrait (Desktop) -->
+      <!-- Portrait (Desktop) — atmosphärisch, nicht dominant -->
       <div class="relative hidden lg:block overflow-hidden">
         <img
           src="/Jutta_meise.jpeg"
           alt=""
           aria-hidden="true"
           class="hero-bg absolute inset-0 w-full h-full object-cover"
-          style="object-position: center 15%;"
+          style="object-position: 85% 10%; filter: saturate(0.55) brightness(0.75);"
         />
-        <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(26,31,46,1) 0%, rgba(26,31,46,0.55) 22%, rgba(26,31,46,0.1) 55%, transparent 100%);" aria-hidden="true"></div>
-        <div class="absolute inset-x-0 bottom-0" style="height: 35%; background: linear-gradient(to top, rgba(26,31,46,0.6) 0%, transparent 100%);" aria-hidden="true"></div>
+        <!-- Starker Links-Fade: Portrait tritt hinter Text zurück -->
+        <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(26,31,46,1) 0%, rgba(26,31,46,0.82) 30%, rgba(26,31,46,0.38) 60%, rgba(26,31,46,0.08) 100%);" aria-hidden="true"></div>
+        <!-- Unten -->
+        <div class="absolute inset-x-0 bottom-0" style="height: 40%; background: linear-gradient(to top, rgba(26,31,46,0.75) 0%, transparent 100%);" aria-hidden="true"></div>
       </div>
 
     </div>
@@ -165,7 +167,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
   <!-- ② Buch: Angekommen -->
-  <section style="background: var(--color-parchment);" class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
+  <section style="background: var(--color-parchment);" class="relative px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
+    <img
+      src="/katze-zitat.png"
+      alt=""
+      aria-hidden="true"
+      class="absolute pointer-events-none select-none hidden lg:block"
+      style="bottom: -1rem; right: -1rem; height: 130px; width: auto; opacity: 0.07; filter: grayscale(1); transform: scaleX(-1);"
+    />
     <div class="max-w-6xl mx-auto grid lg:grid-cols-[5fr_4fr] gap-16 items-center">
       <div class="flex justify-center lg:justify-start reveal">
         <div class="book-cover" style="max-width: 280px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.28);">
