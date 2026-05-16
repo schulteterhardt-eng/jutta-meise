@@ -1,0 +1,71 @@
+---
+interface Props {
+  cover: string;
+  coverAlt: string;
+  year: string;
+  title: string;
+  subtitle?: string;
+  quote?: string;
+  prose: string;
+  link: string;
+  amazonLink?: string;
+  reverse?: boolean;
+  bg?: string;
+}
+const {
+  cover, coverAlt, year, title, subtitle, quote,
+  prose, link, amazonLink, reverse = false,
+  bg = 'var(--color-parchment)'
+} = Astro.props;
+---
+
+<style>
+  .book-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 1024px) {
+    .book-grid.normal  { grid-template-columns: 5fr 4fr; }
+    .book-grid.reverse { grid-template-columns: 4fr 5fr; }
+  }
+</style>
+
+<section style={`background: ${bg};`} class="px-8 sm:px-14 lg:px-20 py-24 sm:py-32 overflow-hidden">
+  <div class={`book-grid ${reverse ? 'reverse' : 'normal'}`}>
+
+    <div class={`flex justify-center lg:justify-start ${reverse ? 'order-1 lg:order-2' : ''} reveal`}>
+      <div class="book-cover" style="max-width: 280px; width: 100%; aspect-ratio: 2/3; position: relative; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.28);">
+        <img src={cover} alt={coverAlt} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+      </div>
+    </div>
+
+    <div class={`flex flex-col justify-center ${reverse ? 'order-2 lg:order-1' : ''} reveal reveal-d2`}>
+      <p class="t-label-petrol mb-3">Roman · {year}</p>
+      <h2 class="t-heading mb-2" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">{title}</h2>
+      {subtitle && (
+        <p style="font-family: var(--font-body); font-size: 0.9375rem; color: var(--color-subtle); font-style: italic; margin-bottom: 1.5rem;">{subtitle}</p>
+      )}
+      <div class="rule mb-6"></div>
+      {quote && (
+        <p style="font-family: var(--font-serif); font-size: clamp(1rem, 1.5vw, 1.125rem); color: var(--color-ink); line-height: 1.65; font-style: italic; margin-bottom: 1.25rem;">
+          {quote}
+        </p>
+      )}
+      <p class="t-prose mb-8">{prose}</p>
+      <div class="flex flex-wrap gap-5 items-center">
+        <a href={link} class="text-link">Mehr erfahren</a>
+        {amazonLink && (
+          <a href={amazonLink} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Bei Amazon →
+          </a>
+        )}
+      </div>
+    </div>
+
+  </div>
+</section>
