@@ -2,18 +2,18 @@
 
 /* ─── Design Tokens ──────────────────────────────────────────────── */
 :root {
-  /* Farben */
-  --color-ink:       #1a1f2e;
-  --color-deep:      #252d40;
-  --color-petrol:    #2e7d8c;
-  --color-mist:      #7db4bd;
-  --color-fog:       #c2dce0;
-  --color-parchment: #f8f5f0;
-  --color-cream:     #f0ebe2;
-  --color-sand:      #d8d2c8;
-  --color-stone:     #9a9590;
-  --color-text:      #1e1e28;
-  --color-subtle:    #6e6a64;
+  /* Farben — Premium Midnight Blue Palette */
+  --color-ink:       #121b2e;   /* Tiefes Midnight Blue — klarer Blaucharakter, kein Grau-Schwarz */
+  --color-deep:      #1e3050;   /* Petrol-Nacht — sichtbar heller+blauer als ink, für Header */
+  --color-petrol:    #2d7a8a;   /* Teal-Akzent — leicht wärmer */
+  --color-mist:      #7db4bd;   /* Bleibt */
+  --color-fog:       #c6dde3;   /* Leicht wärmer */
+  --color-parchment: #f6f2ec;   /* Champagner-Weiß — warm, nicht kalt */
+  --color-cream:     #ece6da;   /* Warmes Cream — mehr Tiefe */
+  --color-sand:      #d2ccc0;   /* Warmer Sand */
+  --color-stone:     #96928c;   /* Warmer Stein */
+  --color-text:      #18181e;   /* Nahezu Schwarz — neutral, warm */
+  --color-subtle:    #6a6660;   /* Warmes Grau */
 
   /* Systemfonts – keine externen Abhängigkeiten */
   --font-serif: 'Palatino', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
