@@ -18,6 +18,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     from { opacity: 0; }
     to   { opacity: 1; }
   }
+  @keyframes hero-drift {
+    0%, 100% { transform: scale(1.05) translateY(0); }
+    50%       { transform: scale(1.00) translateY(-0.8%); }
+  }
+  .hero-bg {
+    transform-origin: 70% center;
+    animation: hero-drift 26s ease-in-out infinite;
+    will-change: transform;
+  }
 
   /* ── Hero: gestaffelt beim Laden ────────────────────────── */
   .hero-label  { animation: fade-up  0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s both; }
@@ -29,13 +38,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* ── Scroll-Reveal (via IntersectionObserver) ───────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.in-view         { opacity: 1; transform: translateY(0); }
-  .reveal-d1              { transition-delay: 0.12s; }
-  .reveal-d2              { transition-delay: 0.24s; }
+  .reveal-d1              { transition-delay: 0.1s; }
+  .reveal-d2              { transition-delay: 0.2s; }
+  .reveal-d3              { transition-delay: 0.32s; }
 
   /* ── Buchcover-Hover ─────────────────────────────────────── */
   .book-cover {
@@ -69,10 +79,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   @media (max-width: 639px) {
     .hero-section,
     .hero-inner {
-      min-height: calc(100svh - 64px) !important;
+      min-height: calc(100svh - 76px) !important;
     }
     .hero-inner {
-      padding-bottom: 3rem !important;
+      padding-bottom: 2.5rem !important;
     }
     .social-touch {
       display: inline-flex;
@@ -90,7 +100,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* ── prefers-reduced-motion ──────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
     .hero-label, .hero-h1, .hero-rule, .hero-byline, .hero-cta,
-    .reveal, .reveal-d1, .reveal-d2 {
+    .reveal, .reveal-d1, .reveal-d2, .hero-bg {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
@@ -107,15 +117,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       src="/hero.jpg"
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="hero-bg absolute inset-0 w-full h-full object-cover"
       style="object-position: 70% center;"
     />
     <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
 
-    <div class="relative z-10 flex flex-col justify-end h-full px-8 sm:px-14 lg:px-20 pb-20 sm:pb-32 hero-inner" style="min-height: 100svh;">
+    <div class="relative z-10 flex flex-col justify-end h-full px-8 sm:px-14 lg:px-20 pb-16 sm:pb-24 hero-inner" style="min-height: 100svh;">
       <div class="max-w-3xl">
         <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
-        <h1 class="t-display text-white mb-8 hero-h1" style="font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -0.025em; line-height: 1.08;">
+        <h1 class="t-display text-white mb-8 hero-h1" style="font-size: clamp(3.25rem, 7.5vw, 6rem); letter-spacing: -0.03em; line-height: 1.05;">
           Zwischen Sprache,<br />Erinnerung<br />und Leben.
         </h1>
         <div class="rule mb-9 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
@@ -166,7 +176,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           src="/katze-zitat.png"
           alt=""
           aria-hidden="true"
-          style="max-height: clamp(120px, 22vw, 320px); width: auto; opacity: 0.85; filter: brightness(0.9);"
+          style="max-height: clamp(80px, 14vw, 200px); width: auto; opacity: 0.45; filter: brightness(0.75);"
         />
       </div>
 
