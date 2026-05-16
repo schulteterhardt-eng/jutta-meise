@@ -3,10 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Impressum – Dr. Jutta Meise" description="Impressum der Website von Dr. Jutta Meise.">
-  <section style="background: var(--color-ink);" class="py-20 px-6">
+  <section style="background: var(--color-parchment); border-bottom: 1px solid var(--color-sand);" class="pt-28 pb-14 sm:pt-32 sm:pb-16 px-6">
     <div class="max-w-2xl mx-auto">
-      <h1 style="font-family: var(--font-serif); color: white;" class="text-3xl font-normal mb-2">Impressum</h1>
-      <p style="font-family: var(--font-ui); color: var(--color-mist);" class="text-xs uppercase tracking-widest">Angaben gemäß § 5 DDG</p>
+      <p class="t-label mb-6">Rechtliches</p>
+      <h1 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: var(--color-ink);">Impressum</h1>
+      <div class="rule mt-7"></div>
     </div>
   </section>
   <section style="background: var(--color-parchment);" class="py-20 px-6">
