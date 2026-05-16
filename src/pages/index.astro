@@ -23,9 +23,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     50%       { transform: scale(1.00) translateY(-0.8%); }
   }
   .hero-bg {
-    transform-origin: 70% center;
+    transform-origin: 55% 15%;
     animation: hero-drift 26s ease-in-out infinite;
     will-change: transform;
+  }
+  .hero-mobile-portrait {
+    height: 55vw;
+    max-height: 320px;
   }
 
   /* ── Hero: gestaffelt beim Laden ────────────────────────── */
@@ -77,10 +81,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── Mobile-Optimierungen ───────────────────────────────── */
   @media (max-width: 639px) {
-    .hero-section,
-    .hero-inner {
-      min-height: calc(100svh - 76px) !important;
-    }
     .hero-inner {
       padding-bottom: 2.5rem !important;
     }
@@ -111,32 +111,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </style>
 
 
-  <!-- ① Hero -->
-  <section class="relative overflow-hidden hero-section" style="min-height: 100svh; background: var(--color-ink);">
-    <img
-      src="/hero.jpg"
-      alt=""
-      aria-hidden="true"
-      class="hero-bg absolute inset-0 w-full h-full object-cover"
-      style="object-position: 70% center;"
-    />
-    <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
+  <!-- ① Hero: Split-Layout -->
+  <section class="hero-section" style="background: var(--color-ink);">
 
-    <div class="relative z-10 flex flex-col justify-end h-full px-8 sm:px-14 lg:px-20 pb-16 sm:pb-24 hero-inner" style="min-height: 100svh;">
-      <div class="max-w-3xl">
-        <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
-        <h1 class="t-display text-white mb-8 hero-h1" style="font-size: clamp(3.25rem, 7.5vw, 6rem); letter-spacing: -0.03em; line-height: 1.05;">
-          Zwischen Sprache,<br />Erinnerung<br />und Leben.
-        </h1>
-        <div class="rule mb-9 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
-        <p class="hero-byline mb-10" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; text-transform: uppercase;">
-          Dr. Jutta Meise &nbsp;·&nbsp; Autorin &nbsp;·&nbsp; Deutsch &amp; Englisch
-        </p>
-        <div class="hero-cta flex flex-wrap gap-4">
-          <a href="/buecher" class="btn-primary">Meine Bücher →</a>
-          <a href="/ueber-die-autorin" class="btn-ghost-light">Über die Autorin</a>
+    <!-- Mobile: Portrait-Streifen oben -->
+    <div class="lg:hidden relative overflow-hidden hero-mobile-portrait">
+      <img
+        src="/Jutta_meise.jpeg"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover"
+        style="object-position: center 15%;"
+      />
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(26,31,46,0.08) 0%, rgba(26,31,46,0.5) 65%, rgba(26,31,46,1) 100%);" aria-hidden="true"></div>
+    </div>
+
+    <!-- Desktop: Linke Textspalte / Rechte Portraitspalte -->
+    <div class="lg:grid lg:grid-cols-[55fr_45fr]" style="min-height: 100svh;">
+
+      <!-- Text -->
+      <div class="relative z-10 flex flex-col justify-end px-8 sm:px-14 lg:px-16 xl:px-20 pb-16 sm:pb-24 pt-12 lg:pt-0 lg:min-h-screen hero-inner">
+        <div class="max-w-xl">
+          <p class="t-label mb-10 hero-label" style="color: var(--color-fog);">Autorin · Dinslaken am Niederrhein</p>
+          <h1 class="t-display text-white mb-8 hero-h1" style="font-size: clamp(3.25rem, 7.5vw, 6rem); letter-spacing: -0.03em; line-height: 1.05;">
+            Zwischen Sprache,<br />Erinnerung<br />und Leben.
+          </h1>
+          <div class="rule mb-9 hero-rule" style="background: rgba(255,255,255,0.3);"></div>
+          <p class="hero-byline mb-10" style="font-family: var(--font-ui); font-size: 0.8125rem; color: rgba(255,255,255,0.5); letter-spacing: 0.18em; text-transform: uppercase;">
+            Dr. Jutta Meise &nbsp;·&nbsp; Autorin &nbsp;·&nbsp; Deutsch &amp; Englisch
+          </p>
+          <div class="hero-cta flex flex-wrap gap-4">
+            <a href="/buecher" class="btn-primary">Meine Bücher →</a>
+            <a href="/ueber-die-autorin" class="btn-ghost-light">Über die Autorin</a>
+          </div>
         </div>
       </div>
+
+      <!-- Portrait (Desktop) -->
+      <div class="relative hidden lg:block overflow-hidden">
+        <img
+          src="/Jutta_meise.jpeg"
+          alt=""
+          aria-hidden="true"
+          class="hero-bg absolute inset-0 w-full h-full object-cover"
+          style="object-position: center 15%;"
+        />
+        <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(26,31,46,1) 0%, rgba(26,31,46,0.55) 22%, rgba(26,31,46,0.1) 55%, transparent 100%);" aria-hidden="true"></div>
+        <div class="absolute inset-x-0 bottom-0" style="height: 35%; background: linear-gradient(to top, rgba(26,31,46,0.6) 0%, transparent 100%);" aria-hidden="true"></div>
+      </div>
+
     </div>
   </section>
 
