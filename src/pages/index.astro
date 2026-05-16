@@ -110,17 +110,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ① Hero: Typografie als Held — Premium Editorial -->
   <section class="relative overflow-hidden hero-section" style="background: var(--color-ink); min-height: 100svh;">
 
-    <!-- Atmosphärische Tiefe: Textur + cinematic Lichtsetzung -->
+    <!-- Hauptbild — natürlich, warm, rechte Seite offen -->
     <img
       src="/Jutta_meise.jpeg"
       alt="" aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover"
-      style="object-position: center 15%; opacity: 0.10; filter: grayscale(1);"
+      class="hero-bg absolute inset-0 w-full h-full object-cover"
+      style="object-position: 62% 12%; filter: brightness(0.94) contrast(1.03) saturate(0.96);"
     />
-    <!-- Petrol-Glühen rechts + subtiles Oberlicht — erzeugt Tiefe und Luft -->
-    <div class="absolute inset-0" style="background:
-      radial-gradient(ellipse at 90% 5%, rgba(194,218,240,0.05) 0%, transparent 45%),
-      radial-gradient(ellipse 65% 60% at 75% 55%, rgba(46,125,140,0.12) 0%, transparent 100%);" aria-hidden="true"></div>
+    <!-- Verlauf NUR links — hinter der Typografie, neutrale Dunkelheit ohne Blau-Stich -->
+    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(10,8,16,0.97) 0%, rgba(12,10,18,0.90) 28%, rgba(14,12,20,0.50) 48%, rgba(16,14,22,0.10) 65%, transparent 82%);" aria-hidden="true"></div>
 
     <!-- Content -->
     <div class="relative z-10 flex flex-col justify-center min-h-screen px-8 sm:px-14 lg:px-20 xl:px-28 py-20">
@@ -135,7 +133,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               Zwischen<br />Sprache,<br />Erinnerung<br />und Leben.
             </h1>
             <div class="rule mb-8 hero-rule" style="background: rgba(255,255,255,0.22);"></div>
-            <p class="hero-byline" style="font-family: var(--font-body); font-size: clamp(0.9375rem, 1.4vw, 1.0625rem); color: rgba(255,255,255,0.48); line-height: 1.75; max-width: 40ch; margin-bottom: 2.5rem;">
+            <p class="hero-byline" style="font-family: var(--font-body); font-size: clamp(0.9375rem, 1.4vw, 1.0625rem); color: rgba(255,255,255,0.48); line-height: 1.75; max-width: 40ch; margin-bottom: 3.5rem;">
               Romane, Essays und literarische Veröffentlichungen — auf Deutsch und Englisch.
             </p>
             <div class="hero-cta flex flex-wrap gap-4">
@@ -146,17 +144,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <!-- Editorial-Portrait: klein, zurückhaltend, nur Desktop -->
           <div class="hidden lg:flex lg:flex-col lg:items-start hero-cta" style="flex-shrink: 0; padding-bottom: 0.25rem;">
-            <div class="relative overflow-hidden" style="width: 190px; height: 265px; box-shadow: 0 24px 64px rgba(0,0,0,0.5);">
+            <div class="relative overflow-hidden" style="width: 185px; height: 255px; box-shadow: 0 6px 24px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.14); transform: rotate(-0.6deg);">
               <img
                 src="/Jutta_meise.jpeg"
                 alt="Dr. Jutta Meise"
-                class="hero-bg w-full h-full object-cover"
-                style="object-position: center 10%; filter: sepia(0.14) hue-rotate(-5deg) saturate(0.90) brightness(0.80) contrast(1.12);"
+                class="w-full h-full object-cover"
+                style="object-position: center 10%; filter: sepia(0.09) saturate(0.92) brightness(0.91) contrast(1.08);"
               />
-              <!-- Vignette: Hintergrund zurücktreten lassen, Gesicht hervorheben -->
-              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 78% 88% at 50% 34%, transparent 20%, rgba(18,27,46,0.68) 100%);" aria-hidden="true"></div>
-              <!-- Subtiler Film-Grain via SVG-Filter -->
-              <div class="absolute inset-0 pointer-events-none" style="opacity: 0.045; background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22/></svg>'); background-size: 120px 120px; mix-blend-mode: overlay;" aria-hidden="true"></div>
+              <!-- Leichte Vignette — Ränder weich, Gesicht klar -->
+              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 90% at 50% 32%, transparent 28%, rgba(8,6,14,0.45) 100%);" aria-hidden="true"></div>
             </div>
             <p style="font-family: var(--font-ui); font-size: 0.625rem; color: rgba(255,255,255,0.18); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.875rem;">
               Dr. Jutta Meise
