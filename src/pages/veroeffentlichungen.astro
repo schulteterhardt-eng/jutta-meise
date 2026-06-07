@@ -19,8 +19,48 @@ const kategorien = [
   {
     titel: 'Weitere Veröffentlichungen',
     eintraege: [
-      { titel: 'Beitrag im Jahrbuch des Kreises Wesel', quelle: 'Kreis Wesel', jahr: '2026', sprache: 'Deutsch', link: '' },
-      { titel: 'Beitrag im Jahrbuch des Kreises Wesel', quelle: 'Kreis Wesel', jahr: '2024', sprache: 'Deutsch', link: '' },
+      {
+        titel: 'Lessings Anglophilie',
+        quelle: 'Dissertationsschrift · Europäische Aufklärung in Literatur und Sprache, Band 10 · Peter Lang Verlag',
+        jahr: '1993',
+        sprache: 'Deutsch',
+        link: '',
+        beschreibung: 'Wissenschaftliche Arbeit zur Anglophilie Gotthold Ephraim Lessings.',
+        hinweis: 'Gebraucht noch erhältlich.',
+        image: '/images/lessings-anglophilie/jutta-meise-frueher.webp',
+        imageAlt: 'Jutta Meise in der Entstehungszeit der Dissertation',
+        caption: 'Jutta Meise in der Entstehungszeit der Dissertation. Foto: Privatarchiv Jutta Meise.',
+      },
+      {
+        titel: 'Traditionsgeschäfte auf der Dinslakener Neustraße – Neustraße 46',
+        quelle: 'Jahrbuch des Kreises Wesel',
+        jahr: '2024',
+        sprache: 'Deutsch',
+        link: '',
+        pdf: '/pdfs/verlagstext-neustr-46-2024.pdf',
+        image: '/images/Jahrbuecher/jahrbuch-2024-kreis-wesel.webp',
+        imageAlt: 'Jahrbuch des Kreises Wesel 2024',
+      },
+      {
+        titel: 'Traditionsgeschäfte auf der Dinslakener Neustraße – Neustraße 38',
+        quelle: 'Jahrbuch des Kreises Wesel',
+        jahr: '2025',
+        sprache: 'Deutsch',
+        link: '',
+        pdf: '/pdfs/verlagstext-neustr-38-2025.pdf',
+        image: '/images/Jahrbuecher/jahrbuch-2025-kreis-wesel.webp',
+        imageAlt: 'Jahrbuch des Kreises Wesel 2025',
+      },
+      {
+        titel: 'Traditionsgeschäfte auf der Dinslakener Neustraße – Neustraße 13',
+        quelle: 'Jahrbuch des Kreises Wesel',
+        jahr: '2026',
+        sprache: 'Deutsch',
+        link: '',
+        pdf: '/pdfs/verlagstext-neustr-13-2026.pdf',
+        image: '/images/Jahrbuecher/jahrbuch-2026-kreis-wesel.webp',
+        imageAlt: 'Jahrbuch des Kreises Wesel 2026',
+      },
     ],
   },
 ];
@@ -55,7 +95,7 @@ const kategorien = [
 
           <div>
             {kat.eintraege.map(e => (
-              <div style="border-bottom: 1px solid var(--color-sand);" class="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
+              <div style="border-bottom: 1px solid var(--color-sand);" class="py-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                 <div class="flex-1">
                   <p style="font-family: var(--font-serif); color: var(--color-ink); font-size: 1rem; margin-bottom: 0.25rem;">
                     {e.link
@@ -63,11 +103,42 @@ const kategorien = [
                       : e.titel
                     }
                   </p>
-                  <p class="t-label">{e.quelle}</p>
+                  <p class="t-label" style="margin-bottom: 0;">{e.quelle}</p>
+                  {e.beschreibung && (
+                    <p style="font-family: var(--font-body); color: var(--color-stone); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.55;">{e.beschreibung}</p>
+                  )}
+                  {e.hinweis && (
+                    <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.875rem; margin-top: 0.375rem;">{e.hinweis}</p>
+                  )}
+                  {e.pdf && (
+                    <a
+                      href={e.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-link"
+                      style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; margin-top: 0.75rem;"
+                    >
+                      Verlagstext lesen
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  )}
+                  {e.caption && (
+                    <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem; line-height: 1.4;">{e.caption}</p>
+                  )}
                 </div>
-                <div class="flex items-center gap-4 flex-shrink-0">
-                  <span class="t-label" style={e.sprache === 'Englisch' ? 'color: var(--color-petrol);' : ''}>{e.sprache}</span>
-                  <span class="t-label">{e.jahr}</span>
+                <div class="flex flex-col items-end gap-3 flex-shrink-0">
+                  {e.image && (
+                    <img
+                      src={e.image}
+                      alt={e.imageAlt || e.titel}
+                      loading="lazy"
+                      style="width: 72px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.12);"
+                    />
+                  )}
+                  <div class="flex items-center gap-4">
+                    <span class="t-label" style={e.sprache === 'Englisch' ? 'color: var(--color-petrol);' : ''}>{e.sprache}</span>
+                    <span class="t-label">{e.jahr}</span>
+                  </div>
                 </div>
               </div>
             ))}
