@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # lokale Arbeitsordner
 Neu bekommen/
+.vercel
+.env*
