@@ -325,17 +325,7 @@ body {
 }
 
 
-/* ─── Hero: echter diagonaler Abschnitt ohne Restbalken ─────────── */
-.hero-section {
-  --hero-slant: clamp(72px, 8vw, 120px);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - var(--hero-slant)),
-    0 100%
-  );
-  margin-bottom: calc(var(--hero-slant) * -1);
-}
+
 
 
 /* ─── Kompakter Katzen-/Zitatbereich ───────────────────────────── */
@@ -422,6 +412,127 @@ body {
 
   .cat-quote-image {
     width: 115px;
+  }
+}
+
+
+/* ─── Hero: Inhalt vor schräger Kante schützen ─────────────────── */
+.hero-section {
+  --hero-slant: clamp(52px, 6vw, 88px);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--hero-slant)),
+    0 100%
+  );
+  margin-bottom: calc(var(--hero-slant) * -1);
+}
+
+.hero-section .hero-inner {
+  padding-bottom: clamp(7rem, 12vw, 11rem);
+  transform: translateY(-3vh);
+}
+
+@media (max-width: 760px) {
+  .hero-section .hero-inner {
+    transform: translateY(-1.5vh);
+    padding-bottom: 7rem;
+  }
+}
+
+
+/* ─── Hero: sichtbarer diagonaler Schwung ohne Anschnitt ───────── */
+.hero-section {
+  --hero-slant: clamp(105px, 11vw, 170px);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--hero-slant)),
+    0 100%
+  );
+  margin-bottom: calc(var(--hero-slant) * -1);
+}
+
+.hero-section .hero-inner {
+  padding-bottom: clamp(11rem, 17vw, 16rem);
+  transform: translateY(-5vh);
+}
+
+@media (max-width: 760px) {
+  .hero-section {
+    --hero-slant: 82px;
+  }
+
+  .hero-section .hero-inner {
+    transform: translateY(-2vh);
+    padding-bottom: 8rem;
+  }
+}
+
+/* ─── Hero: sichtbarer diagonaler Schwung als Overlay ───────────── */
+.hero-section {
+  position: relative;
+  clip-path: none !important;
+  margin-bottom: 0 !important;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: clamp(95px, 10vw, 150px);
+  background: var(--color-cream);
+  clip-path: polygon(0 88%, 100% 24%, 100% 100%, 0 100%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.hero-section .hero-inner {
+  position: relative;
+  z-index: 10;
+  padding-bottom: clamp(8rem, 12vw, 12rem);
+}
+
+@media (max-width: 760px) {
+  .hero-section::after {
+    height: 90px;
+    clip-path: polygon(0 82%, 100% 32%, 100% 100%, 0 100%);
+  }
+
+  .hero-section .hero-inner {
+    padding-bottom: 7rem;
+  }
+}
+
+
+/* ─── Unterer Kontaktbereich: diagonaler Schwung oben/unten ─────── */
+.contact-swing-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(7rem, 9vw, 10rem);
+  padding-bottom: clamp(7rem, 9vw, 10rem);
+  clip-path: polygon(
+    0 10%,
+    100% 0,
+    100% 90%,
+    0 100%
+  );
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+@media (max-width: 760px) {
+  .contact-swing-section {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+    clip-path: polygon(
+      0 5%,
+      100% 0,
+      100% 95%,
+      0 100%
+    );
   }
 }
 
