@@ -140,11 +140,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </section>
+</section>
 
 
   <!-- ② Buch: Angekommen -->
-  <section style="background: var(--color-parchment);" class="relative px-8 sm:px-14 lg:px-20 py-28 sm:py-36 overflow-hidden">
+  <section style="background: var(--color-cream);" class="relative px-8 sm:px-14 lg:px-20 py-28 sm:py-36 overflow-hidden">
     <img
       src="/katze-zitat.png"
       alt=""
@@ -173,34 +173,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </section>
+</section>
 
 
+  
   <!-- ③ Großes Zitat – typografische Sektion -->
-  <section style="background: #1c1814;" class="px-8 sm:px-14 lg:px-20 py-36 sm:py-44 overflow-hidden">
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-end">
-
-      <div class="flex justify-center items-end reveal">
+  <section class="cat-quote-section">
+    <div class="cat-quote-inner">
+      <div class="cat-quote-image-wrap">
         <img
           src="/katze-zitat.png"
           alt=""
           aria-hidden="true"
-          style="max-height: clamp(80px, 14vw, 200px); width: auto; opacity: 0.45; filter: brightness(0.75);"
+          class="cat-quote-image"
+          loading="lazy"
         />
       </div>
 
-      <div class="reveal reveal-d2">
-        <p class="t-label mb-8" style="color: rgba(255,255,255,0.22);">In eigenen Worten</p>
-        <blockquote class="t-quote" style="color: white; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.35;">
+      <div class="cat-quote-copy">
+        <p class="cat-quote-label">In eigenen Worten</p>
+        <blockquote class="cat-quote-text">
           „Ich schreibe, weil manche Dinge<br class="hidden sm:block" />
-          nur in der Sprache wirklich ankommen."
+          nur in der Sprache wirklich<br class="hidden sm:block" />
+          ankommen.“
         </blockquote>
-        <p style="font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.28); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2.5rem;">
-          Dr. Jutta Meise
-        </p>
+        <p class="cat-quote-author">Dr. Jutta Meise</p>
       </div>
     </div>
   </section>
+
 
 
   <!-- ④ Buch: Einäugig -->
@@ -223,7 +224,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
-  </section>
+</section>
 
 
   <!-- ⑤ Pressestimme -->

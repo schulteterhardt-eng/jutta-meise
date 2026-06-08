@@ -35,7 +35,7 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--color-text);
-  background: var(--color-parchment);
+  background: var(--color-cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.7;
@@ -282,3 +282,146 @@ body {
   color: var(--color-petrol);
   text-decoration: underline;
 }
+
+/* ─── Sanfte Wellen-Trenner ─────────────────────────────────────── */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: clamp(90px, 11vw, 160px);
+}
+
+.wave-divider--bottom {
+  bottom: -1px;
+}
+
+.wave-divider--top {
+  top: -1px;
+}
+
+.wave-divider--top svg {
+  transform: rotate(180deg);
+}
+
+.wave-fill-parchment {
+  fill: var(--color-parchment);
+}
+
+.wave-fill-cream {
+  fill: var(--color-cream);
+}
+
+.wave-fill-dark {
+  fill: #1c1814;
+}
+
+
+/* ─── Hero: echter diagonaler Abschnitt ohne Restbalken ─────────── */
+.hero-section {
+  --hero-slant: clamp(72px, 8vw, 120px);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--hero-slant)),
+    0 100%
+  );
+  margin-bottom: calc(var(--hero-slant) * -1);
+}
+
+
+/* ─── Kompakter Katzen-/Zitatbereich ───────────────────────────── */
+.cat-quote-section {
+  position: relative;
+  background: #1c1814;
+  padding: clamp(4.5rem, 6vw, 6rem) 2rem;
+  overflow: hidden;
+  clip-path: polygon(
+    0 10%,
+    100% 0,
+    100% 90%,
+    0 100%
+  );
+}
+
+.cat-quote-inner {
+  width: min(100%, 820px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.75rem);
+}
+
+.cat-quote-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cat-quote-image {
+  width: clamp(120px, 12vw, 155px);
+  height: auto;
+  opacity: 0.5;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35));
+}
+
+.cat-quote-copy {
+  max-width: 620px;
+}
+
+.cat-quote-label {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.24);
+  margin-bottom: 1.1rem;
+}
+
+.cat-quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.28;
+  color: rgba(255, 255, 255, 0.86);
+  font-style: italic;
+  margin: 0;
+}
+
+.cat-quote-author {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 760px) {
+  .cat-quote-section {
+    padding: 4.5rem 1.5rem;
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+  }
+
+  .cat-quote-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .cat-quote-image-wrap {
+    justify-content: center;
+  }
+
+  .cat-quote-image {
+    width: 115px;
+  }
+}
+
