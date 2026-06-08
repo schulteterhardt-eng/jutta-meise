@@ -170,42 +170,53 @@ body {
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: white;
   background: var(--color-petrol);
-  padding: 0.75rem 1.875rem;
-  border-radius: 1px;
-  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.3s ease;
+  padding: 0.8125rem 2rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(45, 122, 138, 0.22);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.btn-primary::after {
+  content: '→';
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  display: inline-block;
+  transition: transform 0.22s ease;
 }
 .btn-primary:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(45,122,138,0.28);
+  box-shadow: 0 8px 28px rgba(45, 122, 138, 0.44);
+  transform: translateY(-2px);
+}
+.btn-primary:hover::after {
+  transform: translateX(5px);
 }
 
 .btn-ghost {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-ink);
-  border: 1px solid var(--color-sand);
+  color: var(--color-petrol);
+  background: transparent;
+  border: 1.5px solid var(--color-petrol);
   padding: 0.75rem 1.875rem;
-  border-radius: 1px;
-  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 .btn-ghost:hover {
-  border-color: var(--color-petrol);
-  color: var(--color-petrol);
+  background: rgba(45, 122, 138, 0.09);
+  box-shadow: 0 4px 16px rgba(45, 122, 138, 0.18);
   transform: translateY(-1px);
 }
 
@@ -213,15 +224,15 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  padding: 0.75rem 1.875rem;
-  border-radius: 1px;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  padding: 0.8125rem 2rem;
+  border-radius: 999px;
   transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 .btn-ghost-light:hover {

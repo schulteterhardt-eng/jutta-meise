@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Lessings Anglophilie – Dr. Jutta Meise"
+  description="Lessings Anglophilie – Dissertationsschrift von Dr. Jutta Meise, 1993."
+>
+
+  <!-- Hero -->
+  <section style="background: var(--color-parchment); border-bottom: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 pt-28 pb-14 sm:pt-36 sm:pb-16">
+    <div class="max-w-6xl mx-auto">
+      <a href="/buecher" class="t-label" style="color: var(--color-stone); text-decoration: none; display: inline-flex; align-items: center; gap: 0.375rem; margin-bottom: 2rem;">
+        ← Alle Bücher
+      </a>
+      <p class="t-label-petrol mb-4">Dissertationsschrift · 1993</p>
+      <h1 class="t-display" style="font-size: clamp(2.5rem, 5vw, 4rem);">Lessings Anglophilie</h1>
+      <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 1.0625rem; margin-top: 0.75rem;">Dissertationsschrift</p>
+      <div class="rule mt-8"></div>
+    </div>
+  </section>
+
+
+  <!-- Inhalt -->
+  <section style="background: var(--color-parchment);" class="py-14 sm:py-20 px-8 sm:px-14 lg:px-20">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[5fr_7fr] gap-10 lg:gap-16 items-start">
+
+      <!-- Cover -->
+      <div>
+        <div style="aspect-ratio: 2/3; max-width: 280px; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.18);">
+          <img src="/images/lessings-anglophilie/cover-lessings-anglophilie.webp" alt="Lessings Anglophilie" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div style="padding-top: 0.5rem;">
+
+        <p class="t-prose mb-6">
+          Wissenschaftliche Arbeit zur Anglophilie Gotthold Ephraim Lessings.
+        </p>
+
+        <div style="border-top: 1px solid var(--color-sand); padding-top: 1.25rem; margin-bottom: 0.5rem;">
+          <p class="t-label" style="margin-bottom: 0.25rem;">Verlag</p>
+          <p style="font-family: var(--font-body); color: var(--color-stone); font-size: 0.9rem; line-height: 1.5;">
+            Europäische Aufklärung in Literatur und Sprache, Band 10<br />Peter Lang Verlag
+          </p>
+        </div>
+
+        <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.875rem; margin-top: 1rem;">
+          Gebraucht noch erhältlich.
+        </p>
+
+        <div style="border-top: 1px solid var(--color-sand); padding-top: 1.25rem; margin-top: 1.25rem;">
+          <a
+            href="https://www.amazon.de/Lessings-Anglophilie-Europ%C3%A4ische-Aufkl%C3%A4rung-Literatur/dp/3631313012"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-ghost"
+          >Amazon</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Abschluss -->
+  <section style="background: var(--color-cream); border-top: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 py-8">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <a href="/buecher" class="text-link">← Zurück zu allen Büchern</a>
+      <a href="/kontakt" class="text-link">Kontakt →</a>
+    </div>
+  </section>
+
+</BaseLayout>

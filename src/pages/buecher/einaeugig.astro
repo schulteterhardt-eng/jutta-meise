@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const galerie = [
+  { src: '/images/einaeugig/eingangshalle.webp', alt: 'Eingangshalle', caption: 'Eingangshalle' },
+  { src: '/images/einaeugig/eingangstuer.webp', alt: 'Eingangstür', caption: 'Eingangstür' },
+  { src: '/images/einaeugig/erbaut-1928.webp', alt: 'Erbaut 1928', caption: 'Erbaut 1928' },
+  { src: '/images/einaeugig/frueher-kreissaal.webp', alt: 'Früher Kreißsaal', caption: 'Früher ging es hier zum Kreißsaal' },
+  { src: '/images/einaeugig/typische-gaenge-II.webp', alt: 'Typische Gänge', caption: 'Typische Gänge' },
+  { src: '/images/einaeugig/original-katze-in-farbe.webp', alt: 'Original-Katze in Farbe', caption: 'Original-Katze in Farbe' },
+];
+---
+
+<BaseLayout
+  title="Einäugig – Dr. Jutta Meise"
+  description="Einäugig – Eine ungewöhnliche Spurensuche. Roman von Dr. Jutta Meise, 2021."
+>
+
+  <!-- Hero -->
+  <section style="background: var(--color-parchment); border-bottom: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 pt-28 pb-14 sm:pt-36 sm:pb-16">
+    <div class="max-w-6xl mx-auto">
+      <a href="/buecher" class="t-label" style="color: var(--color-stone); text-decoration: none; display: inline-flex; align-items: center; gap: 0.375rem; margin-bottom: 2rem;">
+        ← Alle Bücher
+      </a>
+      <p class="t-label-petrol mb-4">Roman · 2021</p>
+      <h1 class="t-display" style="font-size: clamp(2.5rem, 5vw, 4rem);">Einäugig</h1>
+      <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 1.0625rem; margin-top: 0.75rem;">Eine ungewöhnliche Spurensuche</p>
+      <div class="rule mt-8"></div>
+    </div>
+  </section>
+
+
+  <!-- Inhalt -->
+  <section style="background: var(--color-parchment);" class="py-14 sm:py-20 px-8 sm:px-14 lg:px-20">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[5fr_7fr] gap-10 lg:gap-16 items-start">
+
+      <!-- Cover -->
+      <div>
+        <div style="aspect-ratio: 2/3; max-width: 280px; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.18);">
+          <img src="/buch-einaeugig.jpg" alt="Einäugig" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div style="padding-top: 0.5rem; display: flex; flex-direction: column; gap: 0;">
+
+        <p class="t-prose mb-6">
+          Hanna ist als Einzelkind aufgewachsen – und weiß doch, dass sie eine eineiige Zwillingsschwester hatte. Heidrun starb am Tag ihrer Geburt. Was wäre gewesen? Diese Frage treibt Hanna auf eine ungewöhnliche Spurensuche: nach der Frau, die sie hätte kennen können – und nach sich selbst.
+        </p>
+
+        <div style="border-top: 1px solid var(--color-sand); padding-top: 1.25rem; margin-bottom: 1.5rem;">
+          <p class="t-label" style="margin-bottom: 0.25rem;">ISBN</p>
+          <p style="font-family: var(--font-ui); font-size: 0.875rem; color: var(--color-stone); letter-spacing: 0.04em;">978-3-000-70114-6</p>
+        </div>
+
+        <div style="border-top: 1px solid var(--color-sand); padding-top: 1.25rem; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.875rem;">
+          <a href="/pdfs/leseprobe-einaeugig.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="align-self: flex-start;">Leseprobe lesen</a>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.625rem;">
+            <a href="https://www.amazon.de/dp/3000701141" target="_blank" rel="noopener noreferrer" class="btn-ghost">Amazon</a>
+            <a href="https://www.thalia.de/suche?sq=978-3-000-70114-6" target="_blank" rel="noopener noreferrer" class="btn-ghost">Thalia</a>
+          </div>
+          <p style="font-family: var(--font-body); color: var(--color-subtle); font-style: italic; font-size: 0.875rem;">Auch als E-Book erhältlich.</p>
+        </div>
+
+        <!-- Galerie -->
+        <div style="border-top: 1px solid var(--color-sand); padding-top: 1rem;">
+          <p class="t-label" style="margin-bottom: 0.625rem;">Bildmaterial</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; align-items: flex-start;">
+            {galerie.map(bild => (
+              <figure style="margin: 0;">
+                <a href={bild.src} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={bild.src}
+                    alt={bild.alt}
+                    loading="lazy"
+                    style="width: 110px; height: 82px; object-fit: cover; display: block; box-shadow: 0 1px 4px rgba(0,0,0,0.08);"
+                  />
+                </a>
+                <figcaption style="font-family: var(--font-body); color: var(--color-subtle); font-size: 0.7rem; font-style: italic; margin-top: 0.2rem; line-height: 1.3; max-width: 110px;">
+                  {bild.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p style="font-family: var(--font-body); color: var(--color-subtle); font-size: 0.72rem; font-style: italic; margin-top: 0.5rem;">Fotos: Privatarchiv Jutta Meise.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Abschluss -->
+  <section style="background: var(--color-cream); border-top: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 py-8">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <a href="/buecher" class="text-link">← Zurück zu allen Büchern</a>
+      <a href="/kontakt" class="text-link">Kontakt →</a>
+    </div>
+  </section>
+
+</BaseLayout>
