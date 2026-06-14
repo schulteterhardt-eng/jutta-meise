@@ -2,12 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const galerie = [
-  { src: '/images/einaeugig/eingangshalle.webp', alt: 'Eingangshalle', caption: 'Eingangshalle' },
+  { src: '/images/einaeugig/eingangshalle.webp', alt: 'Eingangshalle', caption: 'Damals Klinik, heute Uni – die Eingangshalle' },
   { src: '/images/einaeugig/eingangstuer.webp', alt: 'Eingangstür', caption: 'Eingangstür' },
   { src: '/images/einaeugig/erbaut-1928.webp', alt: 'Erbaut 1928', caption: 'Erbaut 1928' },
   { src: '/images/einaeugig/frueher-kreissaal.webp', alt: 'Früher Kreißsaal', caption: 'Früher ging es hier zum Kreißsaal' },
   { src: '/images/einaeugig/typische-gaenge-II.webp', alt: 'Typische Gänge', caption: 'Typische Gänge' },
-  { src: '/images/einaeugig/original-katze-in-farbe.webp', alt: 'Original-Katze in Farbe', caption: 'Original-Katze in Farbe' },
+  { src: '/images/einaeugig/original-katze-in-farbe.webp', alt: 'Juttas Original-Katze', caption: 'Juttas Original-Katze' },
 ];
 ---
 
@@ -44,8 +44,13 @@ const galerie = [
       <!-- Info -->
       <div style="padding-top: 0.5rem; display: flex; flex-direction: column; gap: 0;">
 
+        <blockquote style="font-family: var(--font-serif); font-size: clamp(1.0625rem, 1.5vw, 1.1875rem); font-style: italic; color: var(--color-petrol); line-height: 1.65; margin-bottom: 1.5rem; padding-left: 1.375rem; border-left: 1.5px solid var(--color-petrol);">
+          „Ein Roman, der mich sehr berührt hat – vor allem das Ende geht unter die Haut."<br />
+          <span style="font-family: var(--font-body); font-size: 0.8125rem; color: var(--color-subtle); font-style: normal;">Gesina Stärz, Lektorin</span>
+        </blockquote>
+
         <p class="t-prose mb-6">
-          Hanna ist als Einzelkind aufgewachsen – und weiß doch, dass sie eine eineiige Zwillingsschwester hatte. Heidrun starb am Tag ihrer Geburt. Was wäre gewesen? Diese Frage treibt Hanna auf eine ungewöhnliche Spurensuche: nach der Frau, die sie hätte kennen können – und nach sich selbst.
+          Hanna, Anfang 60 und passionierte Katzen-Liebhaberin, ist als Einzelkind aufgewachsen – und weiß doch, dass sie eine eineiige Zwillingsschwester hatte. Heidrun starb am Tag ihrer Geburt. Warum? Je älter Hanna wird, desto öfter denkt sie über die Frage nach. Bis sie auf dem Dachboden auf alte Dokumente stößt – ein Fund, den sie zunächst für puren Zufall hält. Und dann begibt sie sich auf die Suche nach Heidruns irdischen Spuren …
         </p>
 
         <div style="border-top: 1px solid var(--color-sand); padding-top: 1.25rem; margin-bottom: 1.5rem;">

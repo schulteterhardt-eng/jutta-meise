@@ -5,21 +5,28 @@ const kommend: { datum: string; uhrzeit: string; titel: string; ort: string; inf
 
 const vergangen = [
   {
-    datum: '21. Juli 2025',
+    datum: '14. August 2025',
     titel: 'Lesung in der LESEZEIT',
-    ort: 'Voerde',
-    foto: '/lesung-lesezeit-1.jpg',
-    fotoAlt: 'Lesung in der LESEZEIT Voerde, Juli 2025',
-    presse: [
-      { titel: 'Rheinische Post', datum: '21.7.2025' },
-      { titel: 'NRZ Voerde', datum: '23.7.2025' },
-      { titel: 'Rheinische Post Voerde', datum: '24.7.2025' },
+    ort: 'Buchhandlung LESEZEIT, Bahnhofstraße 61, Voerde',
+    foto: '/images/veranstaltungen/lesezeit/lesung-lesezeit-1.jpg',
+    fotoAlt: 'Dr. Jutta Meise bei der Lesung in der LESEZEIT in Voerde',
+    flyer: '/images/veranstaltungen/lesezeit/flyer-angekommen-lesezeit-2025-08-14.jpg',
+    flyerAlt: 'Flyer zur Lesung Angekommen in der Buchhandlung LESEZEIT',
+    beschreibung: 'Rückblick auf die Lesung aus „Angekommen – Times of Light and Darkness“ mit Gespräch in der Buchhandlung LESEZEIT in Voerde.',
+    presseBilder: [
+      {
+        src: '/images/veranstaltungen/lesezeit/presse-nrz-voerde-2025-07-23.jpg',
+        alt: 'NRZ Voerde vom 23.7.2025',
+        titel: 'NRZ Voerde',
+        datum: '23.7.2025',
+      },
+      {
+        src: '/images/veranstaltungen/lesezeit/presse-rp-voerde-2025-07-24.jpg',
+        alt: 'Rheinische Post Voerde vom 24.7.2025',
+        titel: 'Rheinische Post Voerde',
+        datum: '24.7.2025',
+      },
     ],
-  },
-  {
-    datum: '2024',
-    titel: 'Lesung: Angekommen',
-    ort: 'Niederrhein',
   },
 ];
 ---
@@ -99,17 +106,59 @@ const vergangen = [
               </div>
               <span class="t-label flex-shrink-0">{v.datum}</span>
             </div>
-            {v.foto && (
-              <img
-                src={v.foto}
-                alt={v.fotoAlt}
-                style="width: 100%; max-width: 480px; height: auto; margin-bottom: 1rem; opacity: 0.85;"
-              />
-            )}
-            {v.presse && v.presse.length > 0 && (
-              <p class="t-label" style="opacity: 0.5;">
-                Presse: {v.presse.map((p, i) => `${p.titel} (${p.datum})`).join(' · ')}
+            {v.beschreibung && (
+              <p class="t-prose" style="max-width: 58ch; margin-bottom: 1.25rem;">
+                {v.beschreibung}
               </p>
+            )}
+
+            {(v.foto || v.flyer) && (
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 760px; margin-bottom: 1.25rem;">
+                {v.foto && (
+                  <figure style="margin: 0;">
+                    <a href={v.foto} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={v.foto}
+                        alt={v.fotoAlt}
+                        style="width: 100%; height: auto; opacity: 0.9;"
+                      />
+                    </a>
+                    <figcaption class="t-label" style="margin-top: 0.5rem; opacity: 0.55;">Foto der Lesung</figcaption>
+                  </figure>
+                )}
+                {v.flyer && (
+                  <figure style="margin: 0;">
+                    <a href={v.flyer} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={v.flyer}
+                        alt={v.flyerAlt}
+                        style="width: 100%; height: auto; opacity: 0.9;"
+                      />
+                    </a>
+                    <figcaption class="t-label" style="margin-top: 0.5rem; opacity: 0.55;">Flyer zur Lesung</figcaption>
+                  </figure>
+                )}
+              </div>
+            )}
+
+            {v.presseBilder && v.presseBilder.length > 0 && (
+              <div style="margin-top: 1rem;">
+                <p class="t-label" style="opacity: 0.55; margin-bottom: 0.75rem;">Pressehinweise</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.875rem; max-width: 760px;">
+                  {v.presseBilder.map(p => (
+                    <figure style="margin: 0;">
+                      <a href={p.src} target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={p.src}
+                          alt={p.alt}
+                          style="width: 100%; height: auto; opacity: 0.86;"
+                        />
+                      </a>
+                      <figcaption class="t-label" style="margin-top: 0.5rem; opacity: 0.55;">{p.titel} · {p.datum}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
         ))}

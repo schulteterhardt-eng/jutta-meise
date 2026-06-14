@@ -289,27 +289,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- ⑦ Veranstaltungs-Teaser -->
   <section style="background: var(--color-parchment); border-top: 1px solid var(--color-sand);" class="px-8 sm:px-14 lg:px-20 py-20 overflow-hidden">
     <div class="max-w-6xl mx-auto reveal">
-      <p class="t-label mb-10">Zuletzt auf der Bühne</p>
+      <p class="t-label mb-10">Rückblick · Lesung</p>
       <div class="grid lg:grid-cols-[5fr_7fr] gap-12 items-center">
         <div class="overflow-hidden" style="max-width: 400px;">
           <img
-            src="/lesung-lesezeit-1.jpg"
-            alt="Lesung in der LESEZEIT, Voerde, Juli 2025"
+            src="/images/veranstaltungen/lesezeit/lesung-lesezeit-1.jpg"
+            alt="Lesung in der LESEZEIT, Voerde, August 2025"
             class="event-img w-full h-auto"
             style="opacity: 0.88;"
             loading="lazy"
           />
         </div>
         <div>
-          <p class="t-label-petrol mb-3">21. Juli 2025 · Voerde</p>
+          <p class="t-label-petrol mb-3">14. August 2025 · Voerde</p>
           <h3 class="t-heading mb-5" style="font-size: clamp(1.25rem, 2.5vw, 1.875rem);">Lesung in der LESEZEIT</h3>
           <div class="rule mb-6"></div>
           <p class="t-prose mb-3" style="max-width: 44ch;">
-            Eine Lesung mit Gespräch in der Buchhandlung LESEZEIT in Voerde —
-            begleitet von Rheinischer Post und NRZ.
+            Rückblick auf die Lesung aus „Angekommen – Times of Light and Darkness“
+            in der Buchhandlung LESEZEIT in Voerde.
           </p>
-          <p class="t-label mb-8" style="color: var(--color-stone);">Presse: Rheinische Post · NRZ Voerde</p>
-          <a href="/veranstaltungen" class="btn-ghost">Alle Veranstaltungen</a>
+          <p class="t-label mb-8" style="color: var(--color-stone);">Mit Flyer, Pressehinweisen und Foto der Lesung.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <a href="/veranstaltungen" class="btn-primary">Rückblick zur Lesung ansehen</a>
+            <a href="/kontakt" class="btn-ghost">Lesungsanfrage stellen</a>
+          </div>
         </div>
       </div>
     </div>
